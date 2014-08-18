@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+<div class="container">
+  <div class="col-md-12"><h3> {{session.username}}'s room</h3></div>
+    <div id="left" class="col-md-2">
+      <div class="btn-group-vertical">
+        <div class="btn-group">
+          <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          friends
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+            <li><a href="#">user1</a></li>
+            <li><a href="#">user2</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+    <div id="right" class="col-md-9">
+    {% for i in post_lists %}
+    
+      
+      <div class="panel panel-primary" data-post-id = "{{i.id}}">
+        
+        <div class="panel-heading">number 1
+          <div class="delete"><a href="{{ url_for('delete', id = i.id)}}">{{i.id}} delete</a></div>
+          <div class="delete"><a href="{{ url_for('revise', id = i.id)}}"> revise</a></div>
+        </div>
+        <div class="panel-body">
+        <div><a href="{{ url_for('read', wall_id = session['wall_id'] , id = i.id)}}">{{i.body}}</a></div>
+        
+      </div>
+      
+      </div>
+      
+
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+ 
+    
+    

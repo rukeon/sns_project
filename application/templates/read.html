@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+  <div class="col-md-12"><h3> {{session.username}}'s room</h3></div>
+    <div id="left" class="col-md-2">
+      <div class="btn-group-vertical">
+        <div class="btn-group">
+          <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          friends
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+            <li><a href="#">user1</a></li>
+            <li><a href="#">user2</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div id="right" class="col-md-9">
+      
+      <div class="panel panel-primary">
+        
+        <div class="panel-heading">number 1
+          
+        </div>
+        <div class="panel-body">
+        <div>{{check_post.body}}</div>
+        
+    	</div>
+      
+      </div>
+      <div>
+          <div class="list-group">           
+          {% for i in comment_lists %}
+          <div>{{i.body}}</div>
+          <div class="delete"><a href="{{ url_for('delete_comments', id = i.id)}}"> delete</a></div>
+          {% endfor %}
+          </div>
+          write comment
+          <form action="/write_comment" method="post">
+            <div>
+              <textarea rows="2" cols="100" name="comment_body"> </textarea>
+              <dd><input type="submit" value="write comment"></dd>
+            </div>
+          </form>
+        </div>
+    </div>
+    
+  </div>
+{% endblock %}

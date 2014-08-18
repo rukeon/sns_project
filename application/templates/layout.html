@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko-kr">
+<title>Layout</title>
+<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }} "></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/ajax.js') }}"></script> -->
+<script src="{{ url_for('static', filename='js/contents.js') }}"></script>
+
+
+
+<div class="jumbotron">
+  <h2>SNS WORLD!</h2>
+  <p>what do you think now?</p>
+  
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index"><b>HOME</b></a></li>
+        <li><a href="/contents/1">담벼락</a></li>
+        <li><a href="/write">글쓰기</a></li>
+      </ul>
+        
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login">로그인</a></li>
+        <li><a href="/signup">회원가입</a></li>
+        <li><a href="/logout">log out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{% if session.logged_in %}
+<p>{{session.email}}</p>{% endif %}
+{% block body %}{% endblock %}
+
+</html>

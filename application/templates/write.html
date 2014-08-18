@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">	
+	<div class="row">
+		<div class="texts center">
+
+			<dt>write your story!</dt>
+			<form action="{{ url_for('write_submit') }}" method="post">
+				<textarea rows="7" cols="100" name="body"></textarea>
+				<dt id="secret"><input type="checkbox" name="is_secret">secret</dt>
+				<input class="reverse__btn" type="submit" value="제출">
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+ 
+    
+    

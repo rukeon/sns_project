@@ -1,0 +1,19 @@
+
+    {% for i in posts %}
+    
+      
+      <div class="panel panel-primary" data-post-id = "{{i.id}}">
+        
+        <div class="panel-heading">number 1
+          <div class="delete"><a href="{{ url_for('delete', id = i.id)}}">{{i.id}} delete</a></div>
+          <div class="delete"><a href="{{ url_for('revise', id = i.id)}}"> revise</a></div>
+        </div>
+        <div class="panel-body">
+        <div><a href="{{ url_for('read', wall_id = session['wall_id'] , id = i.id)}}">{{i.body}}</a></div>
+        
+    	</div>
+      
+      </div>
+      
+    
+    {% endfor %}
